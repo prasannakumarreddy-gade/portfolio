@@ -14,12 +14,33 @@
       text-align: center;
       margin-bottom: 50px;
     }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
     section {
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px lightgray;
-      margin-bottom: 20px;
+    }
+    .work-experience, .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .card {
+      background: #f0f0ff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #4a4aff;
     }
   </style>
 </head>
@@ -30,33 +51,55 @@
   <p>Software Developer | Software Engineer | Software Tester | Data Enthusiast | Project Manager</p>
 </header>
 
+<div class="container">
+
 <section>
   <h2>About Me</h2>
   <p>I love building applications, solving problems, and learning new technologies.</p>
-  <p>Seasoned Software Enginner with experience in all phases of Software Development Life Cycle (SDLC) which includes development, design, analysis, testing and Integration of various web based and client/server applications in logistics, healthcare, aviation and banking domains.</p>
+  <p>Seasoned Software Engineer with experience in all phases of Software Development Life Cycle (SDLC) which includes development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
-  
+
 <section>
   <h2>Technical Skills</h2>
     <p>Frameworks: .Net Framework, Entity Framework, .Net Core</p>
-    <p>Programming Languages: C#, LINQ, Python, JavaScript, React </p>
+    <p>Programming Languages: C#, LINQ, Python, JavaScript, React</p>
     <p>Web Technologies: HTML, Asp.Net, ADO.Net MVC, Rest API, Web API, CSS, XML, JSON</p>
     <p>Databases: SQL Server, PostgreSQL, MongoDB</p>
     <p>Data Visualization: PowerBI</p>
     <p>Cloud: Azure</p>
     <p>API Tools: Postman, Swagger</p>
     <p>Project Management: Agile, Scrum, Jira, Confluence, MS Suite, Google Suite</p>
-    <p>Testing: Manual, Unit, Integration, Regression, Smoke and Functional Testing</p>
+    <p>Testing: Manual, Unit, Integration, Regression, Smoke, and Functional Testing</p>
     <p>Automation Testing: ReadyAPI</p>
 </section>
-  
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/prasannakumarreddy-gade/project1">Project 1</a> - Description of Project 1</li>
-    <li><a href="https://github.com/prasannakumarreddy-gade/project2">Project 2</a> - Description of Project 2</li>
-  </ul>
+
+<section class="work-experience">
+  <h2>Work Experience</h2>
+  <div class="card">
+    <h3>Software Engineer at Signant Health</h3>
+    <p>Developed clinical trial applications, led Randomization and Trial Supply Management (RTSM) modules, and improved application performance by 20%.</p>
+  </div>
+  <div class="card">
+    <h3>Software Developer at Alten</h3>
+    <p>Worked on enterprise web applications for logistics and aviation sectors. Successfully deployed 10+ critical client solutions with robust performance optimizations.</p>
+  </div>
 </section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <h3>Inventory Management System</h3>
+    <p>Built a .NET Core and React-based inventory management tool integrated with Azure cloud storage. Enhanced operational efficiency by 30%.</p>
+    <a href="https://github.com/prasannakumarreddy-gade/inventory-management">View Project</a>
+  </div>
+  <div class="card">
+    <h3>MovieLens Dashboard</h3>
+    <p>Developed an interactive Power BI dashboard for analyzing user ratings and genre preferences based on MovieLens dataset insights.</p>
+    <a href="https://github.com/prasannakumarreddy-gade/movielens-dashboard">View Project</a>
+  </div>
+</section>
+
+</div>
 
 <section>
   <h2>Contact</h2>
