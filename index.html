@@ -17,6 +17,10 @@
     header {
       text-align: center;
       margin-bottom: 50px;
+      animation: fadeIn 1s ease-in;
+    }
+    button {
+      cursor: pointer;
     }
     section {
       background: white;
@@ -24,7 +28,13 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px lightgray;
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-in-out both;
     }
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
     .flex-container {
       display: flex;
       flex-wrap: wrap;
@@ -37,6 +47,12 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px lightgray;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.8s ease-in-out both;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .skills {
       display: flex;
@@ -50,22 +66,57 @@
       padding: 8px 12px;
       border-radius: 20px;
       font-size: 14px;
+      transition: background-color 0.3s;
+      animation: fadeInUp 0.8s ease-in-out both;
+    }
+    .skill-badge:hover {
+      background-color: #3333cc;
     }
     .contact {
       text-align: center;
       font-size: 16px;
       margin-top: 30px;
+      animation: fadeInUp 0.8s ease-in-out both;
+      animation-delay: 1s;
     }
     .contact a {
       color: #4a4aff;
       text-decoration: none;
       margin: 0 10px;
     }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4a4aff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    #backToTop:hover {
+      background: #3333cc;
+    }
     .footer {
       text-align: center;
       font-size: 14px;
       margin-top: 20px;
       color: gray;
+      animation: fadeInUp 0.8s ease-in-out both;
+      animation-delay: 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .dark-mode {
       background: #1e1e1e;
@@ -136,7 +187,6 @@
       <li><strong>Software Developer at Alten</strong><br>Worked on high-performance web applications for logistics and aviation domains.</li>
     </ul>
   </div>
-
   <div class="card">
     <h2>Projects</h2>
     <ul>
@@ -149,20 +199,32 @@
 <section class="contact">
   <h2>Contact Me</h2>
   <p>
-    <a href="mailto:prasannakumarreddy.gade8@gmail.com">Email</a> |
-    <a href="tel:+13146578762">Phone</a> |
-    <a href="https://www.linkedin.com/in/prasanna-kumar-reddy-gade">LinkedIn</a>
+    <a href="mailto:prasannakumarreddy.gade8@gmail.com">✉️ prasannakumarreddy.gade8@gmail.com</a> |
+    <a href="tel:+13146578762">📞 +1 (314) 657-8762</a> |
+    <a href="https://www.linkedin.com/in/prasannakumarreddygade/">🔗 LinkedIn</a>
   </p>
 </section>
+
+<button id="backToTop" title="Back to Top">⬆️</button>
 
 <div class="footer">
   &copy; 2025 Prasanna Kumar Reddy Gade. All rights reserved.
 </div>
 
 <script>
+  // Dark Mode Toggle
   const toggleButton = document.getElementById('darkModeToggle');
   toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
