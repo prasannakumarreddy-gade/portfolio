@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prasanna's Portfolio</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
@@ -19,14 +17,21 @@
       margin-bottom: 50px;
       animation: fadeIn 1s ease-in;
     }
-    button {
-      cursor: pointer;
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4a4aff;
+      margin-bottom: 20px;
     }
+    .dark-mode .profile-pic { border-color: #7ab6ff; }
+    button { cursor: pointer; }
     section {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0px 0px 10px lightgray;
+      box-shadow: 0 0 10px lightgray;
       margin-bottom: 20px;
       opacity: 0;
       animation: fadeInUp 0.8s ease-in-out both;
@@ -35,6 +40,7 @@
     section:nth-of-type(2) { animation-delay: 0.4s; }
     section:nth-of-type(3) { animation-delay: 0.6s; }
     section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
     .flex-container {
       display: flex;
       flex-wrap: wrap;
@@ -42,11 +48,11 @@
     }
     .card {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0px 0px 10px lightgray;
+      box-shadow: 0 0 10px lightgray;
       transition: transform 0.3s, box-shadow 0.3s;
       animation: fadeInUp 0.8s ease-in-out both;
     }
@@ -69,38 +75,18 @@
       transition: background-color 0.3s;
       animation: fadeInUp 0.8s ease-in-out both;
     }
-    .skill-badge:hover {
-      background-color: #3333cc;
-    }
+    .skill-badge:hover { background-color: #3333cc; }
     .contact {
       text-align: center;
       font-size: 16px;
       margin-top: 30px;
       animation: fadeInUp 0.8s ease-in-out both;
-      animation-delay: 1s;
+      animation-delay: 1.2s;
     }
-    .contact a {
+    .contact a, .contact span {
       color: #4a4aff;
       text-decoration: none;
       margin: 0 10px;
-    }
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #4a4aff;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      display: none;
-      z-index: 1000;
-      transition: background 0.3s;
-    }
-    #backToTop:hover {
-      background: #3333cc;
     }
     .footer {
       text-align: center;
@@ -108,41 +94,32 @@
       margin-top: 20px;
       color: gray;
       animation: fadeInUp 0.8s ease-in-out both;
-      animation-delay: 1.2s;
+      animation-delay: 1.4s;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    #backToTop {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #4a4aff; color: white; border: none;
+      padding: 10px; border-radius: 50%; cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3); display: none;
+      z-index: 1000; transition: background 0.3s;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .dark-mode {
-      background: #1e1e1e;
-      color: #f4f4f4;
-    }
-    .dark-mode section, .dark-mode .card {
-      background: #2c2c2c;
-      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-    }
-    .dark-mode a {
-      color: #7ab6ff;
-    }
-    .dark-mode .skill-badge {
-      background-color: #6a6aff;
-    }
-    .dark-mode .footer {
-      color: lightgray;
-    }
+    #backToTop:hover { background: #3333cc; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .dark-mode { background: #1e1e1e; color: #f4f4f4; }
+    .dark-mode section, .dark-mode .card { background: #2c2c2c; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+    .dark-mode a, .dark-mode span { color: #7ab6ff; }
+    .dark-mode .skill-badge { background-color: #6a6aff; }
+    .dark-mode .footer { color: lightgray; }
   </style>
 </head>
 <body>
 
 <header>
+  <img src="assets/your-photo.jpg" alt="Prasanna's Photo" class="profile-pic">
   <h1>Hi, I'm Prasanna Kumar Reddy Gade 👋</h1>
   <p>Software Developer | Software Engineer | Software Tester | Data Enthusiast | Project Manager</p>
-  <button id="darkModeToggle" style="margin-top: 20px; padding: 10px 20px; border-radius: 8px; background-color: #4a4aff; color: white; border: none; cursor: pointer;">
+  <button id="darkModeToggle" style="margin-top: 20px; padding: 10px 20px; border-radius: 8px; background-color: #4a4aff; color: white; border: none;">
     Toggle Dark Mode
   </button>
 </header>
@@ -150,12 +127,13 @@
 <section>
   <h2>About Me</h2>
   <p>I love building applications, solving problems, and learning new technologies.</p>
-  <p>Seasoned Software Engineer with experience in all phases of Software Development Life Cycle (SDLC) including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
+  <p>Seasoned Software Engineer with experience in all phases of SDLC including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
 <section>
   <h2>Technical Skills</h2>
   <div class="skills">
+    <!-- skill badges here -->
     <span class="skill-badge">.NET Framework</span>
     <span class="skill-badge">Entity Framework</span>
     <span class="skill-badge">.NET Core</span>
@@ -184,14 +162,21 @@
     <h2>Work Experience</h2>
     <ul>
       <li><strong>Software Engineer at Signant Health</strong><br>Developed and maintained clinical trial applications and RTSM systems.</li>
-      <li><strong>Software Developer at Alten</strong><br>Worked on high-performance web applications for logistics and aviation domains.</li>
+      <li><strong>Software Developer at Alten</strong><br>High-performance web apps for logistics & aviation.</li>
     </ul>
   </div>
   <div class="card">
     <h2>Projects</h2>
     <ul>
-      <li><a href="https://github.com/prasannakumarreddy-gade/project1">Project 1</a> - A tool to streamline randomization in clinical trials.</li>
-      <li><a href="https://github.com/prasannakumarreddy-gade/project2">Project 2</a> - A web dashboard for aviation logistics monitoring.</li>
+      <li><a href="#">Project 1</a> - Randomization tool for clinical trials.</li>
+      <li><a href="#">Project 2</a> - Aviation logistics dashboard.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Master of Science</strong>, Your University, expected Dec 2024</li>
+      <li><strong>Bachelor of Engineering</strong>, Your University, 2018</li>
     </ul>
   </div>
 </section>
@@ -199,8 +184,8 @@
 <section class="contact">
   <h2>Contact Me</h2>
   <p>
-    <a href="mailto:prasannakumarreddy.gade8@gmail.com">✉️ prasannakumarreddy.gade8@gmail.com</a> |
-    <a href="tel:+13146578762">📞 +1 (314) 657-8762</a> |
+    <a href="mailto:prasannakumarreddy8.gade@gmail.com">✉️ prasannakumarreddy8.gade@gmail.com</a> |
+    <a href="tel:+13146578762">📞 +1 (469) 608-0873</a> |
     <a href="https://www.linkedin.com/in/prasannakumarreddygade/">🔗 LinkedIn</a>
   </p>
 </section>
@@ -212,20 +197,11 @@
 </div>
 
 <script>
-  // Dark Mode Toggle
-  const toggleButton = document.getElementById('darkModeToggle');
-  toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  });
-
-  // Back to Top Button
+  document.getElementById('darkModeToggle')
+    .addEventListener('click', () => document.body.classList.toggle('dark-mode'));
   const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', () => backToTop.style.display = window.scrollY > 300 ? 'block' : 'none');
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>
