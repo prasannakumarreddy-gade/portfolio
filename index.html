@@ -5,87 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prasanna's Portfolio</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f4;
       color: #333;
     }
     header {
       text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 1.5s ease-in;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
+      margin-bottom: 50px;
     }
     section {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      animation: fadeInUp 1s ease-in-out;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px lightgray;
+      margin-bottom: 20px;
     }
-    .about, .skills {
-      text-align: center;
-    }
-    .skills-list {
+    .flex-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 15px;
+      gap: 20px;
+    }
+    .card {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px lightgray;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
     }
     .skill-badge {
       background-color: #4a4aff;
       color: white;
-      padding: 10px 20px;
+      padding: 8px 12px;
       border-radius: 20px;
       font-size: 14px;
-      transition: background-color 0.3s ease;
     }
-    .skill-badge:hover {
-      background-color: #3333cc;
+    .contact {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 30px;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .card {
-      background: #f0f8ff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .card h3 {
-      margin-top: 0;
+    .contact a {
       color: #4a4aff;
-    }
-    a {
       text-decoration: none;
-      color: #333;
-      font-weight: bold;
+      margin: 0 10px;
     }
-    a:hover {
-      color: #4a4aff;
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+      color: gray;
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .dark-mode {
+      background: #1e1e1e;
+      color: #f4f4f4;
     }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .dark-mode section, .dark-mode .card {
+      background: #2c2c2c;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    }
+    .dark-mode a {
+      color: #7ab6ff;
+    }
+    .dark-mode .skill-badge {
+      background-color: #6a6aff;
+    }
+    .dark-mode .footer {
+      color: lightgray;
     }
   </style>
 </head>
@@ -94,80 +91,80 @@
 <header>
   <h1>Hi, I'm Prasanna Kumar Reddy Gade 👋</h1>
   <p>Software Developer | Software Engineer | Software Tester | Data Enthusiast | Project Manager</p>
+  <button id="darkModeToggle" style="margin-top: 20px; padding: 10px 20px; border-radius: 8px; background-color: #4a4aff; color: white; border: none; cursor: pointer;">
+    Toggle Dark Mode
+  </button>
 </header>
 
-<div class="container">
-
-<section class="about">
+<section>
   <h2>About Me</h2>
   <p>I love building applications, solving problems, and learning new technologies.</p>
-  <p>Seasoned Software Engineer with experience in all phases of Software Development Life Cycle (SDLC) which includes development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
+  <p>Seasoned Software Engineer with experience in all phases of Software Development Life Cycle (SDLC) including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section class="skills">
+<section>
   <h2>Technical Skills</h2>
-  <div class="skills-list">
-    <span class="skill-badge">.Net Framework</span>
+  <div class="skills">
+    <span class="skill-badge">.NET Framework</span>
     <span class="skill-badge">Entity Framework</span>
-    <span class="skill-badge">.Net Core</span>
+    <span class="skill-badge">.NET Core</span>
     <span class="skill-badge">C#</span>
     <span class="skill-badge">LINQ</span>
     <span class="skill-badge">Python</span>
     <span class="skill-badge">JavaScript</span>
     <span class="skill-badge">React</span>
     <span class="skill-badge">HTML</span>
-    <span class="skill-badge">Asp.Net</span>
-    <span class="skill-badge">ADO.Net MVC</span>
-    <span class="skill-badge">Rest API</span>
-    <span class="skill-badge">Web API</span>
-    <span class="skill-badge">CSS</span>
+    <span class="skill-badge">ASP.NET</span>
+    <span class="skill-badge">MVC</span>
     <span class="skill-badge">SQL Server</span>
     <span class="skill-badge">PostgreSQL</span>
     <span class="skill-badge">MongoDB</span>
-    <span class="skill-badge">PowerBI</span>
+    <span class="skill-badge">Power BI</span>
     <span class="skill-badge">Azure</span>
     <span class="skill-badge">Postman</span>
     <span class="skill-badge">Swagger</span>
-    <span class="skill-badge">Agile</span>
     <span class="skill-badge">Jira</span>
-    <span class="skill-badge">Confluence</span>
-    <span class="skill-badge">Testing (Manual, Unit, Integration)</span>
     <span class="skill-badge">ReadyAPI</span>
   </div>
 </section>
 
-<section>
-  <h2>Work Experience & Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Software Engineer at Signant Health</h3>
-      <p>Developed clinical trial applications, led Randomization and Trial Supply Management (RTSM) modules, and improved application performance by 20%.</p>
-    </div>
-    <div class="card">
-      <h3>Inventory Management System</h3>
-      <p>Built a .NET Core and React-based inventory management tool integrated with Azure cloud storage. Enhanced operational efficiency by 30%.</p>
-      <a href="https://github.com/prasannakumarreddy-gade/inventory-management">View Project</a>
-    </div>
-    <div class="card">
-      <h3>Software Developer at Alten</h3>
-      <p>Worked on enterprise web applications for logistics and aviation sectors. Successfully deployed 10+ critical client solutions with robust performance optimizations.</p>
-    </div>
-    <div class="card">
-      <h3>MovieLens Dashboard</h3>
-      <p>Developed an interactive Power BI dashboard for analyzing user ratings and genre preferences based on MovieLens dataset insights.</p>
-      <a href="https://github.com/prasannakumarreddy-gade/movielens-dashboard">View Project</a>
-    </div>
+<section class="flex-container">
+  <div class="card">
+    <h2>Work Experience</h2>
+    <ul>
+      <li><strong>Software Engineer at Signant Health</strong><br>Developed and maintained clinical trial applications and RTSM systems.</li>
+      <li><strong>Software Developer at Alten</strong><br>Worked on high-performance web applications for logistics and aviation domains.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://github.com/prasannakumarreddy-gade/project1">Project 1</a> - A tool to streamline randomization in clinical trials.</li>
+      <li><a href="https://github.com/prasannakumarreddy-gade/project2">Project 2</a> - A web dashboard for aviation logistics monitoring.</li>
+    </ul>
   </div>
 </section>
 
+<section class="contact">
+  <h2>Contact Me</h2>
+  <p>
+    <a href="mailto:prasannakumarreddy.gade8@gmail.com">Email</a> |
+    <a href="tel:+13146578762">Phone</a> |
+    <a href="https://www.linkedin.com/in/prasanna-kumar-reddy-gade">LinkedIn</a>
+  </p>
+</section>
+
+<div class="footer">
+  &copy; 2025 Prasanna Kumar Reddy Gade. All rights reserved.
 </div>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: prasannakumarreddy8.gade@gmail.com</p>
-  <p>Mobile: (469) 608-0873</p>
-  <p>LinkedIn: https://www.linkedin.com/in/prasannakumarreddygade/</p>
-</section>
+<script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>
