@@ -6,42 +6,66 @@
   <title>Prasanna's Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      color: #333;
     }
     header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease-in;
     }
     .container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
     section {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px lightgray;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease-in-out;
     }
-    .work-experience, .projects {
+    .about, .skills {
+      text-align: center;
+    }
+    .skills-list {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .skill-badge {
+      background-color: #4a4aff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    .skill-badge:hover {
+      background-color: #3333cc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     .card {
-      background: #f0f0ff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: #f0f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .card h3 {
       margin-top: 0;
@@ -55,6 +79,14 @@
     a:hover {
       color: #4a4aff;
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -66,49 +98,65 @@
 
 <div class="container">
 
-<section>
+<section class="about">
   <h2>About Me</h2>
   <p>I love building applications, solving problems, and learning new technologies.</p>
   <p>Seasoned Software Engineer with experience in all phases of Software Development Life Cycle (SDLC) which includes development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section>
+<section class="skills">
   <h2>Technical Skills</h2>
-    <p>Frameworks: .Net Framework, Entity Framework, .Net Core</p>
-    <p>Programming Languages: C#, LINQ, Python, JavaScript, React</p>
-    <p>Web Technologies: HTML, Asp.Net, ADO.Net MVC, Rest API, Web API, CSS, XML, JSON</p>
-    <p>Databases: SQL Server, PostgreSQL, MongoDB</p>
-    <p>Data Visualization: PowerBI</p>
-    <p>Cloud: Azure</p>
-    <p>API Tools: Postman, Swagger</p>
-    <p>Project Management: Agile, Scrum, Jira, Confluence, MS Suite, Google Suite</p>
-    <p>Testing: Manual, Unit, Integration, Regression, Smoke, and Functional Testing</p>
-    <p>Automation Testing: ReadyAPI</p>
+  <div class="skills-list">
+    <span class="skill-badge">.Net Framework</span>
+    <span class="skill-badge">Entity Framework</span>
+    <span class="skill-badge">.Net Core</span>
+    <span class="skill-badge">C#</span>
+    <span class="skill-badge">LINQ</span>
+    <span class="skill-badge">Python</span>
+    <span class="skill-badge">JavaScript</span>
+    <span class="skill-badge">React</span>
+    <span class="skill-badge">HTML</span>
+    <span class="skill-badge">Asp.Net</span>
+    <span class="skill-badge">ADO.Net MVC</span>
+    <span class="skill-badge">Rest API</span>
+    <span class="skill-badge">Web API</span>
+    <span class="skill-badge">CSS</span>
+    <span class="skill-badge">SQL Server</span>
+    <span class="skill-badge">PostgreSQL</span>
+    <span class="skill-badge">MongoDB</span>
+    <span class="skill-badge">PowerBI</span>
+    <span class="skill-badge">Azure</span>
+    <span class="skill-badge">Postman</span>
+    <span class="skill-badge">Swagger</span>
+    <span class="skill-badge">Agile</span>
+    <span class="skill-badge">Jira</span>
+    <span class="skill-badge">Confluence</span>
+    <span class="skill-badge">Testing (Manual, Unit, Integration)</span>
+    <span class="skill-badge">ReadyAPI</span>
+  </div>
 </section>
 
-<section class="work-experience">
-  <h2>Work Experience</h2>
-  <div class="card">
-    <h3>Software Engineer at Signant Health</h3>
-    <p>Developed clinical trial applications, led Randomization and Trial Supply Management (RTSM) modules, and improved application performance by 20%.</p>
-  </div>
-  <div class="card">
-    <h3>Software Developer at Alten</h3>
-    <p>Worked on enterprise web applications for logistics and aviation sectors. Successfully deployed 10+ critical client solutions with robust performance optimizations.</p>
-  </div>
-</section>
-
-<section class="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Inventory Management System</h3>
-    <p>Built a .NET Core and React-based inventory management tool integrated with Azure cloud storage. Enhanced operational efficiency by 30%.</p>
-    <a href="https://github.com/prasannakumarreddy-gade/inventory-management">View Project</a>
-  </div>
-  <div class="card">
-    <h3>MovieLens Dashboard</h3>
-    <p>Developed an interactive Power BI dashboard for analyzing user ratings and genre preferences based on MovieLens dataset insights.</p>
-    <a href="https://github.com/prasannakumarreddy-gade/movielens-dashboard">View Project</a>
+<section>
+  <h2>Work Experience & Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Software Engineer at Signant Health</h3>
+      <p>Developed clinical trial applications, led Randomization and Trial Supply Management (RTSM) modules, and improved application performance by 20%.</p>
+    </div>
+    <div class="card">
+      <h3>Inventory Management System</h3>
+      <p>Built a .NET Core and React-based inventory management tool integrated with Azure cloud storage. Enhanced operational efficiency by 30%.</p>
+      <a href="https://github.com/prasannakumarreddy-gade/inventory-management">View Project</a>
+    </div>
+    <div class="card">
+      <h3>Software Developer at Alten</h3>
+      <p>Worked on enterprise web applications for logistics and aviation sectors. Successfully deployed 10+ critical client solutions with robust performance optimizations.</p>
+    </div>
+    <div class="card">
+      <h3>MovieLens Dashboard</h3>
+      <p>Developed an interactive Power BI dashboard for analyzing user ratings and genre preferences based on MovieLens dataset insights.</p>
+      <a href="https://github.com/prasannakumarreddy-gade/movielens-dashboard">View Project</a>
+    </div>
   </div>
 </section>
 
