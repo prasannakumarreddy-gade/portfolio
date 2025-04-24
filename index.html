@@ -9,7 +9,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #e8f0fe;
+      background: #e6f0ff;
       color: #333;
     }
     header {
@@ -36,38 +36,66 @@
       opacity: 0;
       animation: fadeInUp 0.8s ease-in-out both;
     }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.8s; }
-    section:nth-of-type(5) { animation-delay: 1s; }
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 20px;
+    }
+    .timeline-container::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: #4a4aff;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      position: relative;
+      margin: 20px 0;
+    }
+    .timeline-item.right {
+      justify-content: flex-end;
+    }
+    .timeline-content {
+      width: 45%;
+      background-color: #dbe9ff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .timeline-content:hover {
+      transform: scale(1.03);
+    }
+    .timeline-date {
+      font-weight: bold;
+      color: #4a4aff;
+      margin-bottom: 5px;
+    }
     .flex-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .two-column {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .timeline {
+    .card {
       flex: 1;
-      min-width: 300px;
-      position: relative;
-      padding-left: 30px;
-      border-left: 3px solid #4a4aff;
+      min-width: 280px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px lightgray;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.8s ease-in-out both;
     }
-    .timeline-item {
-      margin-bottom: 20px;
-    }
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-    .timeline-item span {
-      font-size: 14px;
-      color: #555;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .skills {
       display: flex;
@@ -136,13 +164,8 @@
         height: 100px;
         border-width: 3px;
       }
-      .two-column {
-        flex-direction: column;
-      }
     }
-    .profile-photo:hover {
-      transform: scale(1.05);
-    }
+    .profile-photo:hover { transform: scale(1.05); }
   </style>
 </head>
 <body>
@@ -162,44 +185,46 @@
   <p>Seasoned Software Engineer with experience in all phases of SDLC including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section class="two-column">
-  <div class="timeline">
-    <h2>Work Experience</h2>
-    <div class="timeline-item">
-      <h3>TD</h3>
-      <span>June 2024 - Present</span>
-      <p>Contributing to enterprise-level banking solutions using .NET and Azure stack.</p>
+<section class="timeline-container">
+  <h2 style="text-align:center;">Work Experience</h2>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">TD (June 2024 - Present)</div>
+      <p>Currently working on cloud-native architecture & automation initiatives in financial services.</p>
     </div>
-    <div class="timeline-item">
-      <h3>Nokia</h3>
-      <span>Aug 2023 - May 2024</span>
-      <p>Worked on scalable telecommunications solutions using microservices architecture.</p>
+  </div>
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <div class="timeline-date">Nokia (Aug 2023 - May 2024)</div>
+      <p>Developed robust microservices and handled deployment pipelines across 5G operations.</p>
     </div>
-    <div class="timeline-item">
-      <h3>Signant Health</h3>
-      <span>Nov 2021 - July 2023</span>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">Alten (Nov 2022 - Jul 2023)</div>
+      <p>Delivered high-performance logistics solutions and aviation support modules.</p>
+    </div>
+  </div>
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <div class="timeline-date">Signant Health (Nov 2017 - Oct 2022)</div>
       <p>Developed and maintained clinical trial applications and RTSM systems.</p>
     </div>
-    <div class="timeline-item">
-      <h3>Alten</h3>
-      <span>Nov 2017 - Oct 2021</span>
-      <p>Built high-performance web apps for logistics and aviation domains.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="timeline-date">X Company (Jan 2016 - Oct 2017)</div>
+      <p>Built scalable applications in insurance & finance domain. Led agile development teams.</p>
     </div>
   </div>
+</section>
 
-  <div class="timeline">
-    <h2>Education</h2>
-    <div class="timeline-item">
-      <h3>Master of Science</h3>
-      <span>Expected Dec 2024</span>
-      <p>Majoring in Computer Science with focus on software and data engineering.</p>
-    </div>
-    <div class="timeline-item">
-      <h3>Bachelor of Engineering</h3>
-      <span>2014 - 2018</span>
-      <p>Graduated with distinction in Information Technology.</p>
-    </div>
-  </div>
+<section>
+  <h2>Education</h2>
+  <ul>
+    <li><strong>Master of Science</strong>, Your University (Expected Dec 2024)</li>
+    <li><strong>Bachelor of Engineering</strong>, Your University (2018)</li>
+  </ul>
 </section>
 
 <section>
