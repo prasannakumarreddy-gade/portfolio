@@ -9,7 +9,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #e3f2fd;
+      background: #e8f0fe;
       color: #333;
     }
     header {
@@ -41,37 +41,33 @@
     section:nth-of-type(3) { animation-delay: 0.6s; }
     section:nth-of-type(4) { animation-delay: 0.8s; }
     section:nth-of-type(5) { animation-delay: 1s; }
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .two-column {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
     .timeline {
+      flex: 1;
+      min-width: 300px;
       position: relative;
       padding-left: 30px;
-      border-left: 4px solid #4a4aff;
+      border-left: 3px solid #4a4aff;
     }
     .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
+      margin-bottom: 20px;
     }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 5px;
-      width: 15px;
-      height: 15px;
-      background-color: #4a4aff;
-      border-radius: 50%;
-    }
-    .timeline-content {
-      margin-left: 30px;
-    }
-    .timeline-content h3 {
+    .timeline-item h3 {
       margin: 0;
       font-size: 18px;
     }
-    .timeline-content span {
-      display: block;
+    .timeline-item span {
       font-size: 14px;
-      color: gray;
-      margin-bottom: 5px;
+      color: #555;
     }
     .skills {
       display: flex;
@@ -140,6 +136,9 @@
         height: 100px;
         border-width: 3px;
       }
+      .two-column {
+        flex-direction: column;
+      }
     }
     .profile-photo:hover {
       transform: scale(1.05);
@@ -163,40 +162,42 @@
   <p>Seasoned Software Engineer with experience in all phases of SDLC including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section>
-  <h2>Work Experience</h2>
+<section class="two-column">
   <div class="timeline">
+    <h2>Work Experience</h2>
     <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Software Engineer at Signant Health</h3>
-        <span>Nov 2017 - Mar 2022</span>
-        <p>Developed and maintained clinical trial applications and RTSM systems.</p>
-      </div>
+      <h3>TD</h3>
+      <span>June 2024 - Present</span>
+      <p>Contributing to enterprise-level banking solutions using .NET and Azure stack.</p>
     </div>
     <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Software Developer at Alten</h3>
-        <span>Apr 2022 - Present</span>
-        <p>High-performance web apps for logistics & aviation.</p>
-      </div>
+      <h3>Nokia</h3>
+      <span>Aug 2023 - May 2024</span>
+      <p>Worked on scalable telecommunications solutions using microservices architecture.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Signant Health</h3>
+      <span>Nov 2021 - July 2023</span>
+      <p>Developed and maintained clinical trial applications and RTSM systems.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Alten</h3>
+      <span>Nov 2017 - Oct 2021</span>
+      <p>Built high-performance web apps for logistics and aviation domains.</p>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Education</h2>
   <div class="timeline">
+    <h2>Education</h2>
     <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Master of Science, Your University</h3>
-        <span>Jan 2023 - Dec 2024</span>
-      </div>
+      <h3>Master of Science</h3>
+      <span>Expected Dec 2024</span>
+      <p>Majoring in Computer Science with focus on software and data engineering.</p>
     </div>
     <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>Bachelor of Engineering, Your University</h3>
-        <span>2014 - 2018</span>
-      </div>
+      <h3>Bachelor of Engineering</h3>
+      <span>2014 - 2018</span>
+      <p>Graduated with distinction in Information Technology.</p>
     </div>
   </div>
 </section>
