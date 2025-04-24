@@ -9,7 +9,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #e6f0ff;
+      background: #e3f2fd;
       color: #333;
     }
     header {
@@ -36,48 +36,68 @@
       opacity: 0;
       animation: fadeInUp 0.8s ease-in-out both;
     }
-    .timeline-container {
-      display: flex;
-      flex-direction: column;
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+
+    .timeline {
       position: relative;
-      padding: 20px;
+      padding: 40px 0;
     }
-    .timeline-container::before {
-      content: "";
+    .timeline::after {
+      content: '';
       position: absolute;
       left: 50%;
-      top: 0;
+      top: 60px;
       bottom: 0;
       width: 4px;
-      background-color: #4a4aff;
+      background: #4a4aff;
       transform: translateX(-50%);
     }
     .timeline-item {
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
       position: relative;
-      margin: 20px 0;
+      width: 50%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
     }
     .timeline-item.right {
-      justify-content: flex-end;
+      left: 50%;
+      text-align: left;
     }
-    .timeline-content {
-      width: 45%;
-      background-color: #dbe9ff;
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #4a4aff;
+      border: 3px solid white;
+      z-index: 1;
+    }
+    .timeline-item.left::before {
+      right: -10px;
+    }
+    .timeline-item.right::before {
+      left: -10px;
+    }
+    .timeline-card {
+      background: #ffffff;
+      border-left: 5px solid #4a4aff;
       padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .timeline-content:hover {
-      transform: scale(1.03);
+    .timeline-card h3 {
+      margin-top: 0;
     }
-    .timeline-date {
-      font-weight: bold;
-      color: #4a4aff;
-      margin-bottom: 5px;
-    }
+
     .flex-container {
       display: flex;
       flex-wrap: wrap;
@@ -148,6 +168,7 @@
     .dark-mode a, .dark-mode span { color: #7ab6ff; }
     .dark-mode .skill-badge { background-color: #6a6aff; }
     .dark-mode .footer { color: lightgray; }
+
     .profile-photo {
       width: 150px;
       height: 150px;
@@ -165,7 +186,9 @@
         border-width: 3px;
       }
     }
-    .profile-photo:hover { transform: scale(1.05); }
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -185,46 +208,50 @@
   <p>Seasoned Software Engineer with experience in all phases of SDLC including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section class="timeline-container">
-  <h2 style="text-align:center;">Work Experience</h2>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">TD (June 2024 - Present)</div>
-      <p>Currently working on cloud-native architecture & automation initiatives in financial services.</p>
+<section>
+  <h2>Work Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="timeline-card">
+        <h3>TD (June 2024 - Present)</h3>
+        <p>Responsibilities and achievements at TD.</p>
+      </div>
     </div>
-  </div>
-  <div class="timeline-item right">
-    <div class="timeline-content">
-      <div class="timeline-date">Nokia (Aug 2023 - May 2024)</div>
-      <p>Developed robust microservices and handled deployment pipelines across 5G operations.</p>
+    <div class="timeline-item right">
+      <div class="timeline-card">
+        <h3>Nokia (Aug 2023 - May 2024)</h3>
+        <p>Responsibilities and achievements at Nokia.</p>
+      </div>
     </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">Alten (Nov 2022 - Jul 2023)</div>
-      <p>Delivered high-performance logistics solutions and aviation support modules.</p>
+    <div class="timeline-item left">
+      <div class="timeline-card">
+        <h3>Alten (Apr 2020 - July 2023)</h3>
+        <p>High-performance web apps for logistics & aviation.</p>
+      </div>
     </div>
-  </div>
-  <div class="timeline-item right">
-    <div class="timeline-content">
-      <div class="timeline-date">Signant Health (Nov 2017 - Oct 2022)</div>
-      <p>Developed and maintained clinical trial applications and RTSM systems.</p>
+    <div class="timeline-item right">
+      <div class="timeline-card">
+        <h3>Signant Health (Nov 2017 - Mar 2020)</h3>
+        <p>Developed and maintained clinical trial applications and RTSM systems.</p>
+      </div>
     </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="timeline-date">X Company (Jan 2016 - Oct 2017)</div>
-      <p>Built scalable applications in insurance & finance domain. Led agile development teams.</p>
+    <div class="timeline-item left">
+      <div class="timeline-card">
+        <h3>X Company (Date - Date)</h3>
+        <p>Description of role and achievements at X Company.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Education</h2>
-  <ul>
-    <li><strong>Master of Science</strong>, Your University (Expected Dec 2024)</li>
-    <li><strong>Bachelor of Engineering</strong>, Your University (2018)</li>
-  </ul>
+<section class="flex-container">
+  <div class="card">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Master of Science</strong>, Your University, expected Dec 2024</li>
+      <li><strong>Bachelor of Engineering</strong>, Your University, 2018</li>
+    </ul>
+  </div>
 </section>
 
 <section>
