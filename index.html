@@ -9,7 +9,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background: #f4f4f4;
+      background: #e3f2fd;
       color: #333;
     }
     header {
@@ -41,24 +41,37 @@
     section:nth-of-type(3) { animation-delay: 0.6s; }
     section:nth-of-type(4) { animation-delay: 0.8s; }
     section:nth-of-type(5) { animation-delay: 1s; }
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 4px solid #4a4aff;
     }
-    .card {
-      flex: 1;
-      min-width: 280px;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px lightgray;
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: fadeInUp 0.8s ease-in-out both;
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: #4a4aff;
+      border-radius: 50%;
+    }
+    .timeline-content {
+      margin-left: 30px;
+    }
+    .timeline-content h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .timeline-content span {
+      display: block;
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 5px;
     }
     .skills {
       display: flex;
@@ -112,29 +125,25 @@
     .dark-mode .skill-badge { background-color: #6a6aff; }
     .dark-mode .footer { color: lightgray; }
     .profile-photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #007acc;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-/* Add this new part for responsiveness */
-@media (max-width: 600px) {
-  .profile-photo {
-    width: 100px;
-    height: 100px;
-    border-width: 3px;
-  }
-}
-
-/* Optional: Add a small hover effect for fun */
-.profile-photo:hover {
-  transform: scale(1.05);
-}
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #007acc;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    @media (max-width: 600px) {
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+      }
+    }
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -154,34 +163,47 @@
   <p>Seasoned Software Engineer with experience in all phases of SDLC including development, design, analysis, testing, and integration of various web-based and client/server applications in logistics, healthcare, aviation, and banking domains.</p>
 </section>
 
-<section class="flex-container">
-  <div class="card">
-    <h2>Work Experience</h2>
-    <ul>
-      <li><strong>Software Engineer at Signant Health</strong><br>Developed and maintained clinical trial applications and RTSM systems.</li>
-      <li><strong>Software Developer at Alten</strong><br>High-performance web apps for logistics & aviation.</li>
-    </ul>
+<section>
+  <h2>Work Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Software Engineer at Signant Health</h3>
+        <span>Nov 2017 - Mar 2022</span>
+        <p>Developed and maintained clinical trial applications and RTSM systems.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Software Developer at Alten</h3>
+        <span>Apr 2022 - Present</span>
+        <p>High-performance web apps for logistics & aviation.</p>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Project 1</a> - Randomization tool for clinical trials.</li>
-      <li><a href="#">Project 2</a> - Aviation logistics dashboard.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Master of Science</strong>, Your University, expected Dec 2024</li>
-      <li><strong>Bachelor of Engineering</strong>, Your University, 2018</li>
-    </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Master of Science, Your University</h3>
+        <span>Jan 2023 - Dec 2024</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Bachelor of Engineering, Your University</h3>
+        <span>2014 - 2018</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
   <h2>Technical Skills</h2>
   <div class="skills">
-    <!-- skill badges here -->
     <span class="skill-badge">.NET Framework</span>
     <span class="skill-badge">Entity Framework</span>
     <span class="skill-badge">.NET Core</span>
